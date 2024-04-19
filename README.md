@@ -8,4 +8,4 @@ Each solved problem includes:
 * Code
 * Time Complexity
 
-Feel free to explore and learn!
+Feel free to explore and learn !
