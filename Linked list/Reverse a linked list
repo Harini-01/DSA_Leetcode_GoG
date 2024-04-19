@@ -1,1 +1,53 @@
+/* Leetcode number: 206
+PROBLEM STATEMENT: Given the head of a singly linked list, reverse the list, and return the reversed list.
+Example: Input: head = [1,2,3,4,5]
+         Output: [5,4,3,2,1]
 
+Constraints:
+* The number of nodes in the list is the range [0, 5000].
+* -5000 <= Node.val <= 5000
+
+APPROACH: Using three pointers to point to current node, previous node and an iterator. Firstly reverse the first node.
+          Then iterate till last node and reverse in each iteration. Then reverse the last node out of the loop.
+
+
+
+CODE:
+*/
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
+ */
+struct ListNode* reverseList(struct ListNode* head) {
+   struct ListNode* curr;
+   struct ListNode* prev;
+    struct ListNode* iptr;
+
+    if(head==NULL || head->next ==NULL)
+    {
+        return head;
+    }
+
+    curr=head->next;
+    prev=head;
+    iptr=head->next;
+
+    head->next=NULL;
+
+    while(iptr->next!=NULL)
+    {   
+        iptr=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=iptr;
+    }
+    curr->next=prev;
+    head=curr;
+    return head;
+}
+
+/* TIME COMPLEXITY:
+         O(N) where N is size of linked list   */
