@@ -28,29 +28,31 @@ nums contains distinct values sorted in ascending order.
 
 
 SOLUTION:
-int searchInsert(int* nums, int numsSize, int target) {
-    int ans=numsSize;
-    int low=0,high=numsSize-1;
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        int low=0,high=nums.size()-1;
+        int ans=nums.size();
 
-    while(high>=low)
-    {
-        int mid=(high+low)/2;
+        while(high>=low)
+        {
+            int mid=(high+low)/2;
 
-        if(nums[mid]>target)
-        {
-            ans=mid;
-            high=mid-1;
+            if(nums[mid]>target)
+            {
+                ans=mid;
+                high=mid-1;
+            }
+            else if(nums[mid]==target)
+            {
+                return mid;
+            }
+            else
+            {
+                low=mid+1;
+            }
         }
-        else if(nums[mid]==target)
-        {
-            return mid;
-        }
-        else
-        {
-            low=mid+1;
-        }
+        return ans;
+
     }
-    return ans;
-
-}
-
+};
