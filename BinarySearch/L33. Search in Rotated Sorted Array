@@ -1,0 +1,86 @@
+/*There is an integer array nums sorted in ascending order (with distinct values).
+
+Prior to being passed to your function, nums is possibly rotated at an unknown pivot index k (1 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,5,6,7] might be rotated at pivot index 3 and become [4,5,6,7,0,1,2].
+
+Given the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.
+
+You must write an algorithm with O(log n) runtime complexity.
+
+ 
+
+Example 1:
+
+Input: nums = [4,5,6,7,0,1,2], target = 0
+Output: 4
+Example 2:
+
+Input: nums = [4,5,6,7,0,1,2], target = 3
+Output: -1
+Example 3:
+
+Input: nums = [1], target = 0
+Output: -1
+ 
+
+Constraints:
+
+1 <= nums.length <= 5000
+-10^4 <= nums[i] <= 10^4
+All values of nums are unique.
+nums is an ascending array that is possibly rotated.
+-10^4 <= target <= 10^4*/
+
+ANALYSIS:
+Though the array is rotated, we can clearly notice that for every index, one of the 2 halves will always be sorted. In the above example, the right half of the index mid is sorted.
+
+So, to efficiently search for a target value using this observation, we will follow a simple two-step process. 
+
+*First, we identify the sorted half of the array. 
+*Once found, we determine if the target is located within this sorted half. 
+*If not, we eliminate that half from further consideration. 
+ Conversely, if the target does exist in the sorted half, we eliminate the other half.
+
+
+SOLUTION:
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int low=0,high=nums.size()-1;
+
+        while(high>=low)
+        {
+            int mid=(high+low)/2;
+
+            if(nums[mid]==target)
+            {
+                return mid;
+            }
+
+            if(nums[low]<=nums[mid])
+            {   //left part is sorted
+                if(nums[low]<=target&&target<=nums[mid])
+                {   //target is in sorted left part
+                    high=mid-1;
+                }
+                else
+                {
+                    low=mid+1;
+                }
+            }
+            else
+            {   //right part is sorted
+                if(nums[mid]<=target&&target<=nums[high])
+                {
+                    //target is in sorted right part
+                    low=mid+1;
+                }
+                else
+                {
+                    high=mid-1;
+                }
+
+            }
+        }
+        return -1;
+    }
+};
