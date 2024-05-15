@@ -45,6 +45,15 @@ public:
         {
             int mid=(high+low)/2;
 
+            if(nums[low]<=nums[high])
+            {   
+                if(nums[low]<min)
+                {
+                min=nums[low];
+                }
+                break;
+            }
+
             if(nums[low]<=nums[mid])
             {
                 //left is sorted
