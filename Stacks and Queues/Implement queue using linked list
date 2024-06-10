@@ -85,3 +85,8 @@ int main()
     cout<<"The Peek element of the Queue is "<<Q.Peek()<<endl;
     return 0;
 }   
+
+
+Time complexity: O(1).
+
+Space Complexity: O(1)
