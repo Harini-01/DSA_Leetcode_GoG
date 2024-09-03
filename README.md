@@ -7,3 +7,15 @@ Each solved problem includes:
 * Code
 
 Feel free to explore and learn !
+
+<!---LeetCode Topics Start-->
+# LeetCode Topics
+## String
+|  |
+| ------- |
+| [2076-sum-of-digits-of-string-after-convert](https://github.com/Harini-01/DSA/tree/master/2076-sum-of-digits-of-string-after-convert) |
+## Simulation
+|  |
+| ------- |
+| [2076-sum-of-digits-of-string-after-convert](https://github.com/Harini-01/DSA/tree/master/2076-sum-of-digits-of-string-after-convert) |
+<!---LeetCode Topics End-->
