@@ -18,4 +18,16 @@ Feel free to explore and learn !
 |  |
 | ------- |
 | [2076-sum-of-digits-of-string-after-convert](https://github.com/Harini-01/DSA/tree/master/2076-sum-of-digits-of-string-after-convert) |
+## Array
+|  |
+| ------- |
+| [0053-maximum-subarray](https://github.com/Harini-01/DSA/tree/master/0053-maximum-subarray) |
+## Divide and Conquer
+|  |
+| ------- |
+| [0053-maximum-subarray](https://github.com/Harini-01/DSA/tree/master/0053-maximum-subarray) |
+## Dynamic Programming
+|  |
+| ------- |
+| [0053-maximum-subarray](https://github.com/Harini-01/DSA/tree/master/0053-maximum-subarray) |
 <!---LeetCode Topics End-->
