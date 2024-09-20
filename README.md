@@ -22,6 +22,7 @@ Feel free to explore and learn !
 |  |
 | ------- |
 | [0053-maximum-subarray](https://github.com/Harini-01/DSA/tree/master/0053-maximum-subarray) |
+| [0075-sort-colors](https://github.com/Harini-01/DSA/tree/master/0075-sort-colors) |
 ## Divide and Conquer
 |  |
 | ------- |
@@ -30,4 +31,12 @@ Feel free to explore and learn !
 |  |
 | ------- |
 | [0053-maximum-subarray](https://github.com/Harini-01/DSA/tree/master/0053-maximum-subarray) |
+## Two Pointers
+|  |
+| ------- |
+| [0075-sort-colors](https://github.com/Harini-01/DSA/tree/master/0075-sort-colors) |
+## Sorting
+|  |
+| ------- |
+| [0075-sort-colors](https://github.com/Harini-01/DSA/tree/master/0075-sort-colors) |
 <!---LeetCode Topics End-->
