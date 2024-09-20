@@ -1,0 +1,126 @@
+QUESTION:
+Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.
+
+We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
+
+You must solve this problem without using the library's sort function.
+
+ 
+
+Example 1:
+
+Input: nums = [2,0,2,1,1,0]
+Output: [0,0,1,1,2,2]
+Example 2:
+
+Input: nums = [2,0,1]
+Output: [0,1,2]
+ 
+
+Constraints:
+
+n == nums.length
+1 <= n <= 300
+nums[i] is either 0, 1, or 2.
+
+SOLUTION:
+1.Using Merge Sort
+class Solution {
+public:
+
+    void mergesort(vector<int>& nums, int low, int high)
+    {
+        int mid=low+(high-low)/2;
+        if(low<high)
+        {
+            mergesort(nums,low,mid);
+            mergesort(nums,mid+1,high);
+            merge(nums,low,mid,high);
+        }
+        return;
+    }
+
+    void merge(vector<int>& nums,int low,int mid,int high)
+    {
+        vector<int> temp;
+        int left=low;
+        int right=mid+1;
+
+        while(left<=mid&&right<=high)
+        {
+            if(nums[left]<=nums[right])
+            {
+                temp.push_back(nums[left]);
+                left++;
+            }
+            else
+            {
+                temp.push_back(nums[right]);
+                right++;
+            }
+        }
+
+        while(left<=mid)
+        {
+            temp.push_back(nums[left]);
+            left++;
+        }
+
+        while(right<=high)
+        {
+            temp.push_back(nums[right]);
+            right++;
+        }
+
+        for(int i=low;i<=high;i++)
+        {
+            nums[i]=temp[i-low];
+        }
+    }
+
+    void sortColors(vector<int>& nums) {
+        int low=0;
+        int high=nums.size()-1;
+        mergesort(nums,low,high);
+        return;
+    }
+
+};
+
+T.O(NlogN)
+S.O(N)
+
+
+2. Using Dutch National Flag Algorithm
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        //Dutch National Flag Algo
+        int low=0;
+        int high=nums.size()-1;
+        int mid=0;
+
+        while(mid<=high)
+        {
+            if(nums[mid]==0)
+            {
+                swap(nums[low],nums[mid]);
+                low++;
+                mid++;
+            }
+            else if(nums[mid]==1)
+            {
+                mid++;
+            }
+            else{
+                swap(nums[mid],nums[high]);
+               // mid++;
+                high--;
+            }
+        }
+        return;
+    }
+};
+
+T.O(N)
+S.O(1)
