@@ -1,10 +1,6 @@
 Problem statement
 There is an integer array ‘A’ of size ‘N’.
-
-
-
 Number of inversions in an array can be defined as the number of pairs of ‘i’, ‘j’ such that ‘i’ < ‘j’ and ‘A[i]’ > ‘A[j]’.
-
 You must return the number of inversions in the array.
 
 
@@ -104,6 +100,25 @@ int numberOfInversions(vector<int>&a, int n) {
     count=mergesort(a,0,n-1);
     return count;
 }
+
+Explanation for cnt+=(mid-low)+1
+When you are merging two sorted halves of the array, the left half (arr[low..mid]) and 
+the right half (arr[mid+1..high]) are both sorted individually.
+
+During the merging process, you compare elements from the left half and the right half:
+If the element from the left half (arr[left]) is less than or equal to the element from the 
+right half (arr[right]), there is no inversion because both halves are sorted, so we simply add 
+the element from the left half to the temporary array.
+
+If the element from the right half (arr[right]) is smaller than the element from the left half
+(arr[left]), then all remaining elements in the left half (from left to mid) are greater than
+arr[right]. This is because the left half is sorted, and all elements in the left half are 
+larger than arr[right] (since the left index hasn't moved beyond left yet).
+
+Therefore, when arr[right] < arr[left], the number of inversions is exactly the number of remaining
+elements in the left half, which is (mid - left + 1).
+
+This count represents all pairs where arr[left] is greater than arr[right], and the count is updated accordingly.
 
 T.O(nlogn)
 S.O(n)
