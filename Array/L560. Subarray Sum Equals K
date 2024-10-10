@@ -56,6 +56,7 @@ T.O(N^2)
 S.O(1)
 
 Approach 2:
+Using prefix sum
 class Solution {
 public:
     int subarraySum(vector<int>& nums, int k) {
